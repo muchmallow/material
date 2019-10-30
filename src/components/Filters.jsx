@@ -16,13 +16,13 @@ const useStyles = makeStyles(theme => ({
         minWidth: 120,
     },
     selectEmpty: {
-        margin: '0',
+        padding: '3px 0 0 0',
     },
     label: {
         fontWeight: '500',
         fontSize: '18px',
         color: 'black',
-        margin: '0 0 35px 0',
+        margin: '0',
     },
     disabled: {
         color: '#D2CACA',
