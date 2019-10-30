@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
         flexWrap: 'wrap',
     },
     formControl: {
-        margin: '8px 8px 16px 16px',
+        margin: '8px 13px 16px 16px',
         minWidth: 120,
     },
     selectEmpty: {
