@@ -19,6 +19,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import SearchIcon from "@material-ui/icons/Search";
+import Filters from './Filters';
 
 const drawerWidth = 315;
 
@@ -103,11 +104,12 @@ const useStyles = makeStyles(theme => ({
     },
     drawerHeader: {
         display: 'flex',
+        flexDirection: 'column',
         height: "143px",
         alignItems: 'center',
-        padding: theme.spacing(0, 1),
+        padding: theme.spacing(0, 0),
         ...theme.mixins.toolbar,
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
     },
     mainHeader: {
         display: 'flex',
@@ -131,6 +133,12 @@ const useStyles = makeStyles(theme => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
         marginLeft: 0,
+    },
+    filters: {
+        backgroundColor: '#3a8378',
+        height: '40px',
+        color: 'white',
+        padding: '12px 260px 12px 16px',
     },
 }));
 
@@ -204,7 +212,18 @@ export default function Menu() {
                     {/*    {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}*/}
                     {/*</IconButton>*/}
                 </div>
-                <Divider/>
+                <div className={classes.filters}>
+                    <Typography variant={'body2'}>Filters</Typography>
+                </div>
+                <Filters id='typePlaceholder' name='Type' placeholder='All Types'/>
+                <Filters id='usagePlaceholder' name='Usage' placeholder='All Usages'/>
+                <Filters id='agePlaceholder' name='Age' placeholder='All Ages'/>
+                <div className={classes.filters}>
+                    <Typography variant={'body2'}>Tags</Typography>
+                </div>
+                <div className={classes.filters}>
+                    <Typography variant={'body2'}>Folders</Typography>
+                </div>
                 <List>
                     {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                         <ListItem button key={text}>
