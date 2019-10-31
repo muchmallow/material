@@ -20,6 +20,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import SearchIcon from "@material-ui/icons/Search";
 import Filters from './Filters';
+import Tags from './Tags';
 
 const drawerWidth = 315;
 
@@ -221,6 +222,7 @@ export default function Menu() {
                 <div className={classes.filters}>
                     <Typography variant={'body2'}>Tags</Typography>
                 </div>
+                <Tags/>
                 <div className={classes.filters}>
                     <Typography variant={'body2'}>Folders</Typography>
                 </div>

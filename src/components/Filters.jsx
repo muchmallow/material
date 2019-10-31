@@ -59,9 +59,9 @@ const Filters = ({name, placeholder, id, options}) => {
                         {placeholder}
                     </Typography>
                 </MenuItem>
-                <MenuItem value={'Ten'}>Ten</MenuItem>
-                <MenuItem value={'Twenty'}>Twenty</MenuItem>
-                <MenuItem value={'Thirty'}>Thirty</MenuItem>
+                <MenuItem value={'Ten'}><Typography>Ten</Typography></MenuItem>
+                <MenuItem value={'Twenty'}><Typography>Twenty</Typography></MenuItem>
+                <MenuItem value={'Thirty'}><Typography>Thirty</Typography></MenuItem>
             </Select>
         </FormControl>
     );
