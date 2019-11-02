@@ -5,22 +5,15 @@ import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-// import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import SearchIcon from "@material-ui/icons/Search";
 import Filters from './Filters';
 import Tags from './Tags';
+import Folders from "./Folders";
 
 const drawerWidth = 315;
 
@@ -233,7 +226,7 @@ export default function Menu() {
                     <div className={classes.filters}>
                         <Typography variant={'body2'}>Folders</Typography>
                     </div>
-                    <Divider/>
+                    <Folders/>
                 </Drawer>
                 <main
                     className={clsx(classes.content, {

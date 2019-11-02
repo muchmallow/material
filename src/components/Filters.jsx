@@ -34,8 +34,8 @@ const Filters = ({name, placeholder, id, options}) => {
     const classes = useStyles();
     const [value, setValue] = React.useState('');
 
-    const handleChange = event => {
-        setValue(event.target.value);
+    const handleChange = (e) => {
+        setValue(e.target.value);
     };
 
     return (
