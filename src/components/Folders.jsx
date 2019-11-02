@@ -42,8 +42,8 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         height: '49px'
     },
-    foldersHeaderIcon: {
-        // margin: '5px 14px 0 14px',
+    foldersHeaderLeft: {
+        margin: '0 0 0 4px',
         // color: '#757575'
     }
 }));
@@ -59,19 +59,19 @@ const Folders = () => {
     return (
         <>
             <div className={classes.foldersHeader}>
-                <div>
+                <div className={classes.foldersHeaderLeft}>
                     <IconButton>
-                        <AddCircleOutlineIcon className={classes.foldersHeaderIcon}/>
+                        <AddCircleOutlineIcon/>
                     </IconButton>
                     <IconButton>
-                        <EditIcon className={classes.foldersHeaderIcon}/>
+                        <EditIcon/>
                     </IconButton>
                     <IconButton>
-                        <ShareIcon className={classes.foldersHeaderIcon}/>
+                        <ShareIcon/>
                     </IconButton>
                 </div>
                 <IconButton>
-                    <DeleteIcon className={classes.foldersHeaderIcon}/>
+                    <DeleteIcon/>
                 </IconButton>
             </div>
             <Divider/>
