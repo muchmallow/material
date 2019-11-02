@@ -20,13 +20,19 @@ const useStyles = makeStyles(theme => ({
     },
     input: {
         width: '100%',
-        margin: '14px 2px 18px 0'
+        margin: '14px 2px 18px 0',
     },
     inputIcon: {
         color: '#757575',
         "&:hover": {
             color: '#3a8378'
         }
+    },
+    inputButton: {
+        //paddingRight: 0,
+        position: 'relative',
+        top: '-4px',
+        left: '10px'
     },
     tagsWrapper: {
         display: 'flex',
@@ -55,7 +61,6 @@ const Tags = () => {
     ]);
 
     const handleInput = (e) => {
-        console.log(e.target.value);
         setInputValue(e.target.value.trim());
     };
 
@@ -85,8 +90,8 @@ const Tags = () => {
                        onChange={handleInput}
                        value={inputValue}
                        endAdornment={
-                           <InputAdornment position='end'>
-                               <IconButton onClick={addNewTag}>
+                           <InputAdornment position='flex-end'>
+                               <IconButton onClick={addNewTag} className={classes.inputButton}>
                                    <AddCircleOutlineIcon className={classes.inputIcon}/>
                                </IconButton>
                            </InputAdornment>
