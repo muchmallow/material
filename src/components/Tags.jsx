@@ -90,7 +90,7 @@ const Tags = () => {
                        onChange={handleInput}
                        value={inputValue}
                        endAdornment={
-                           <InputAdornment position='flex-end'>
+                           <InputAdornment position='end'>
                                <IconButton onClick={addNewTag} className={classes.inputButton}>
                                    <AddCircleOutlineIcon className={classes.inputIcon}/>
                                </IconButton>
