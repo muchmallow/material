@@ -12,10 +12,10 @@ import CachedIcon from '@material-ui/icons/Cached';
 import Divider from "@material-ui/core/Divider";
 import AssignmentLateIcon from '@material-ui/icons/AssignmentLate';
 import ShareIcon from '@material-ui/icons/Share';
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
+import ModalEdit from "./ModalEdit";
+import ModalAdd from "./ModalAdd";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -60,12 +60,8 @@ const Folders = () => {
         <>
             <div className={classes.foldersHeader}>
                 <div className={classes.foldersHeaderLeft}>
-                    <IconButton>
-                        <AddCircleOutlineIcon/>
-                    </IconButton>
-                    <IconButton>
-                        <EditIcon/>
-                    </IconButton>
+                    <ModalAdd/>
+                    <ModalEdit/>
                     <IconButton>
                         <ShareIcon/>
                     </IconButton>
