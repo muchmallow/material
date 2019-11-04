@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import test from '../images/test.jpg';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -38,6 +39,20 @@ const useStyles = makeStyles(theme => ({
     },
     iconOk: {
         color: '#31C7AE'
+    },
+    tileSelect: {
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "nowrap",
+        alignItems: "center"
+    },
+    subheaderIcon: {
+        color: "#010101",
+        opacity: "0.54"
+    },
+    subheaderGutters: {
+        padding: "0 12px 0 0",
+        color: "rgba(0, 0, 0, 0.87)"
     }
 }));
 
@@ -164,8 +179,13 @@ const Video = () => {
     return (
         <div className={classes.root}>
             <GridList cellHeight={180} className={classes.gridList}>
-                <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-                    <ListSubheader component="div">Select all</ListSubheader>
+                <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }} classes={{tile: classes.tileSelect}}>
+                    <IconButton className={classes.subheaderIcon}>
+                        <CheckBoxOutlineBlankIcon/>
+                    </IconButton>
+                    <ListSubheader component="div" classes={{gutters: classes.subheaderGutters}}>
+                        <Typography variant="body1" component="p">Select All</Typography>
+                    </ListSubheader>
                 </GridListTile>
                 {listItems}
             </GridList>

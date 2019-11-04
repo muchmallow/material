@@ -15,6 +15,7 @@ import Filters from './Filters';
 import Tags from './Tags';
 import Folders from "./Folders";
 import Video from "./Video";
+import MenuHeader from "./MenuHeader";
 
 const drawerWidth = 315;
 
@@ -235,6 +236,7 @@ export default function Menu() {
                     })}
                 >
                     <div className={classes.mainHeader}/>
+                    <MenuHeader/>
                     <Video/>
                 </main>
             </div>
