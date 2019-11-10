@@ -41,3 +41,15 @@ const handleBlur = () => unselectPlaylist();
 // same flow onDelete
 
 export default mainReducer;
+
+
+
+const SELECT_ALL_VIDEOS = "main/SELECT_ALL_VIDEOS";
+const selectAll = false;
+
+export const selectAll = () => ({
+    type: SELECT_ALL_VIDEOS
+    // selectAll: true,
+    // selected: true
+});
+
