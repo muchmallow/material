@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import clsx from 'clsx';
 import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -150,6 +150,7 @@ const useStyles = makeStyles(theme => ({
 export default function Menu() {
     const classes = useStyles();
     const theme = useTheme();
+    const [altView, setAltView] = useState(false);
     const [open, setOpen] = React.useState(false);
 
     const handleDrawerOpen = () => {
@@ -237,8 +238,8 @@ export default function Menu() {
                     })}
                 >
                     <div className={classes.mainHeader}/>
-                    <MenuHeader/>
-                    <Video/>
+                    <MenuHeader setAltView={setAltView}/>
+                    <Video altView={altView}/>
                 </main>
             </div>
         </div>

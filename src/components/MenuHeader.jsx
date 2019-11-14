@@ -52,16 +52,21 @@ const useStyles = makeStyles(theme => ({
     divider: {
         height: 28,
         margin: 4,
+    },
+    title: {
+        fontWeight: 500,
+        fontSize: "16px",
+        letterSpacing: "-0.03px",
     }
 }));
 
-const MenuHeader = () => {
+const MenuHeader = ({setAltView}) => {
     const classes = useStyles();
 
     return (
         <>
             <div className={classes.headerInfo}>
-                <Typography variant="subtitle1" component="p">
+                <Typography variant="subtitle1" component="p" className={classes.title}>
                     My Library
                 </Typography>
                 <Typography variant="subtitle2" component="span">
@@ -93,10 +98,10 @@ const MenuHeader = () => {
                     />
                 </div>
                 <div className={classes.rightHeaderPart}>
-                    <IconButton className={classes.rightHeaderPartButton}>
+                    <IconButton className={classes.rightHeaderPartButton} onClick={()=>setAltView(false)}>
                         <ViewModuleIcon/>
                     </IconButton>
-                    <IconButton className={classes.rightHeaderPartButton}>
+                    <IconButton className={classes.rightHeaderPartButton} onClick={()=>setAltView(true)}>
                         <ListOutlinedIcon/>
                     </IconButton>
                 </div>

@@ -9,6 +9,7 @@ import test from '../images/test.jpg';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import Typography from "@material-ui/core/Typography";
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -53,10 +54,54 @@ const useStyles = makeStyles(theme => ({
     subheaderGutters: {
         padding: "0 12px 0 0",
         color: "rgba(0, 0, 0, 0.87)"
+    },
+    listItemAlternative: {
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "nowrap",
+        maxWidth: "330px",
+        maxHeight: "80px"
+    },
+    iconWrapper: {
+        display: "flex",
+        alignItems: "center",
+        padding: "0 0 10px 0"
+    },
+    iconAlternative: {
+        position: "relative"
+    },
+    imgWrapper: {
+        display: "flex",
+        maxHeight: "64px",
+        maxWidth: "93px",
+        margin: "0 9px 10px 0"
+    },
+    imgAlternative: {
+        maxHeight: "64px",
+        maxWidth: "93px"
+    },
+    titleWrapper: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        padding: "0 0 10px 0"
+    },
+    titleAlternative: {
+        fontWeight: 500,
+        fontSize: "16px",
+        letterSpacing: "-0.03px",
+        margin: 0
+    },
+    subtitleAlternative: {
+        fontWeight: 600,
+        fontSize: "13px",
+        letterSpacing: "-0.03px",
+        margin: 0,
+        color: "#000000"
     }
 }));
 
-const Video = () => {
+const Video = ({altView}) => {
     const classes = useStyles();
     const [tileData, setTileData] = useState([
         {
@@ -155,7 +200,7 @@ const Video = () => {
         setTileData(tileData.map(tile => (tile.title === title) ? {...tile, selected: !tile.selected} : tile));
     };
 
-    const listItems = tileData.map(tile => (
+    const listItems = !altView ? tileData.map(tile => (
         <GridListTile key={tile.title} className={classes.listItem}>
             <img src={tile.img} alt={tile.title} />
             <GridListTileBar
@@ -174,7 +219,43 @@ const Video = () => {
                 actionPosition='left'
             />
         </GridListTile>
+    )) : tileData.map(tile => (
+        <div className={classes.listItemAlternative} key={tile.title}>
+            <div className={classes.iconWrapper}>
+                <IconButton aria-label={`selected ${tile.title}`}
+                            className={classes.iconAlternative}
+                            onClick={handleSelect(tile.title)}>
+                    {!tile.selected ? <CheckBoxOutlineBlankIcon/> : <CheckBoxIcon className={classes.iconOk}/>}
+                </IconButton>
+            </div>
+            <div className={classes.imgWrapper}>
+                <img src={tile.img} alt={tile.title} className={classes.imgAlternative}/>
+            </div>
+            <div className={classes.titleWrapper}>
+                <p className={classes.titleAlternative}>{tile.title}</p>
+                <p className={classes.subtitleAlternative}>{tile.weight}</p>
+            </div>
+        </div>
     ));
+
+    // const alternativeListItems = tileData.map(tile => (
+    //     <div className={classes.listItemAlternative} key={tile.title}>
+    //         <div className={classes.iconWrapper}>
+    //             <IconButton aria-label={`selected ${tile.title}`}
+    //                         className={classes.iconAlternative}
+    //                         onClick={handleSelect(tile.title)}>
+    //                 {!tile.selected ? <CheckBoxOutlineBlankIcon/> : <CheckBoxIcon className={classes.iconOk}/>}
+    //             </IconButton>
+    //         </div>
+    //         <div className={classes.imgWrapper}>
+    //             <img src={tile.img} alt={tile.title} className={classes.imgAlternative}/>
+    //         </div>
+    //         <div className={classes.titleWrapper}>
+    //             <p className={classes.titleAlternative}>{tile.title}</p>
+    //             <p className={classes.titleAlternative}>{tile.weight}</p>
+    //         </div>
+    //     </div>
+    // ));
 
     return (
         <div className={classes.root}>
@@ -184,7 +265,7 @@ const Video = () => {
                         <CheckBoxOutlineBlankIcon/>
                     </IconButton>
                     <ListSubheader component="div" classes={{gutters: classes.subheaderGutters}}>
-                        <Typography variant="body1" component="p">Select All</Typography>
+                        <Typography variant="body1" component="p" className={classes.titleAlternative}>Select All</Typography>
                     </ListSubheader>
                 </GridListTile>
                 {listItems}
